@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cobranças Pro - Sistema de Gestão de Cobranças</title>
+</head>
+<body>
+    <!-- Login Section -->
+    <section id="loginSection" class="login-section">
+        <div class="login-container">
+            <div class="login-box">
+                <h1 class="login-logo">Cobranças Pro</h1>
+                <p class="login-subtitle">Sistema de Gestão de Cobranças</p>
+
+                <form class="login-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="username">Usuário</label>
+                        <input type="text" id="username" name="username" required placeholder="Digite seu usuário">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="password" required placeholder="Digite sua senha">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userType">Tipo de Usuário</label>
+                        <select id="userType" name="userType" required>
+                            <option value="">Selecione...</option>
+                            <option value="admin">Administrador</option>
+                            <option value="funcionario">Funcionário</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-login">Entrar</button>
+
+                    <div id="loginError" class="login-error" style="display: none;"></div>
+                </form>
+
+                <div class="login-footer">
+                    <p><strong>Credenciais de teste:</strong></p>
+                    <p>Admin: admin / admin</p>
+                    <p>Funcionário: func / func</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <div id="dashboardSection" class="dashboard-section" style="display: none;">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">Cobranças Pro</h1>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="#" class="nav-link active">Dashboard</a></li>
+                        <li><a href="#" class="nav-link">Clientes</a></li>
+                        <li><a href="#" class="nav-link">Cobranças</a></li>
+                        <li><a href="#" class="nav-link">Relatórios</a></li>
+                        <li><a href="#" class="nav-link">Configurações</a></li>
+                        <li><a href="#" class="nav-link logout-link" id="logoutBtn">Sair</a></li>
+                    </ul>
+                </nav>
+                <div class="user-info" id="userInfo"></div>
+            </div>
+        </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Dashboard Cards -->
+        <section class="dashboard-cards">
+            <div class="card">
+                <h3>Total em Cobranças</h3>
+                <p class="card-value">R$ 45.230,00</p>
+                <p class="card-subtitle">28 pendentes</p>
+            </div>
+            <div class="card">
+                <h3>Cobrado este mês</h3>
+                <p class="card-value">R$ 18.900,00</p>
+                <p class="card-subtitle">15 processadas</p>
+            </div>
+            <div class="card">
+                <h3>Taxa de Sucesso</h3>
+                <p class="card-value">94.5%</p>
+                <p class="card-subtitle">Últimos 30 dias</p>
+            </div>
+            <div class="card">
+                <h3>Clientes Ativos</h3>
+                <p class="card-value">127</p>
+                <p class="card-subtitle">+8 este mês</p>
+            </div>
+        </section>
+
+        <!-- Cobranças Pendentes -->
+        <section class="section">
+            <h2>Cobranças Pendentes</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID Cobrança</th>
+                        <th>Cliente</th>
+                        <th>Valor</th>
+                        <th>Vencimento</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#COB-001</td>
+                        <td>Empresa ABC Ltda</td>
+                        <td>R$ 5.200,00</td>
+                        <td>15/04/2026</td>
+                        <td><span class="badge badge-warning">Vencendo</span></td>
+                        <td><button class="btn-action">Enviar</button></td>
+                    </tr>
+                    <tr>
+                        <td>#COB-002</td>
+                        <td>Comércio XYZ</td>
+                        <td>R$ 8.750,00</td>
+                        <td>22/04/2026</td>
+                        <td><span class="badge badge-info">Pendente</span></td>
+                        <td><button class="btn-action">Enviar</button></td>
+                    </tr>
+                    <tr>
+                        <td>#COB-003</td>
+                        <td>Serviços Tech Ind.</td>
+                        <td>R$ 3.450,00</td>
+                        <td>10/04/2026</td>
+                        <td><span class="badge badge-danger">Atrasada</span></td>
+                        <td><button class="btn-action">Cobrar</button></td>
+                    </tr>
+                    <tr>
+                        <td>#COB-004</td>
+                        <td>Consultoria Pro</td>
+                        <td>R$ 12.500,00</td>
+                        <td>28/04/2026</td>
+                        <td><span class="badge badge-info">Pendente</span></td>
+                        <td><button class="btn-action">Enviar</button></td>
+                    </tr>
+                    <tr>
+                        <td>#COB-005</td>
+                        <td>Distribuidora Nacional</td>
+                        <td>R$ 15.330,00</td>
+                        <td>05/05/2026</td>
+                        <td><span class="badge badge-info">Pendente</span></td>
+                        <td><button class="btn-action">Enviar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Clientes -->
+        <section class="section">
+            <h2>Clientes Principais</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Contato</th>
+                        <th>Total Devido</th>
+                        <th>Atrasos</th>
+                        <th>Situação</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Empresa ABC Ltda</td>
+                        <td>gerente@abcltda.com.br</td>
+                        <td>R$ 12.400,00</td>
+                        <td>1</td>
+                        <td><span class="badge badge-danger">Em Risco</span></td>
+                        <td><button class="btn-action">Detalhe</button></td>
+                    </tr>
+                    <tr>
+                        <td>Comércio XYZ</td>
+                        <td>financeiro@xyz.com.br</td>
+                        <td>R$ 8.750,00</td>
+                        <td>0</td>
+                        <td><span class="badge badge-success">Bom</span></td>
+                        <td><button class="btn-action">Detalhe</button></td>
+                    </tr>
+                    <tr>
+                        <td>Serviços Tech Ind.</td>
+                        <td>contato@techind.com.br</td>
+                        <td>R$ 3.450,00</td>
+                        <td>2</td>
+                        <td><span class="badge badge-danger">Crítico</span></td>
+                        <td><button class="btn-action">Detalhe</button></td>
+                    </tr>
+                    <tr>
+                        <td>Consultoria Pro</td>
+                        <td>vendas@consultoriapro.br</td>
+                        <td>R$ 12.500,00</td>
+                        <td>0</td>
+                        <td><span class="badge badge-success">Bom</span></td>
+                        <td><button class="btn-action">Detalhe</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Configurações -->
+        <section class="section">
+            <h2>Configurações</h2>
+            <div class="config-section">
+                <h3>Temas da Página</h3>
+                <p>Escolha o tema visual que preferir:</p>
+
+                <div class="theme-selector">
+                    <div class="theme-option" data-theme="default">
+                        <div class="theme-preview">
+                            <div class="theme-header" style="background: linear-gradient(135deg, #0066cc 0%, #004fa3 100%);"></div>
+                            <div class="theme-content">
+                                <div class="theme-card" style="border-left: 5px solid #0066cc;"></div>
+                                <div class="theme-button" style="background: #0066cc;"></div>
+                            </div>
+                        </div>
+                        <h4>Padrão</h4>
+                        <p>Tema profissional azul</p>
+                    </div>
+
+                    <div class="theme-option" data-theme="galaxy">
+                        <div class="theme-preview">
+                            <div class="theme-header" style="background: linear-gradient(135deg, #4c1d95 0%, #1e1b4b 100%);"></div>
+                            <div class="theme-content">
+                                <div class="theme-card" style="border-left: 5px solid #8b5cf6;"></div>
+                                <div class="theme-button" style="background: linear-gradient(135deg, #8b5cf6 0%, #4c1d95 100%);"></div>
+                            </div>
+                        </div>
+                        <h4>Galáxia</h4>
+                        <p>Tema roxo cósmico</p>
+                    </div>
+
+                    <div class="theme-option" data-theme="dark">
+                        <div class="theme-preview">
+                            <div class="theme-header" style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%);"></div>
+                            <div class="theme-content">
+                                <div class="theme-card" style="border-left: 5px solid #3b82f6;"></div>
+                                <div class="theme-button" style="background: #3b82f6;"></div>
+                            </div>
+                        </div>
+                        <h4>Escuro</h4>
+                        <p>Tema dark mode</p>
+                    </div>
+                </div>
+
+                <div class="theme-status" id="themeStatus" style="display: none;">
+                    <p>Tema aplicado com sucesso! 🎨</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Cobranças Pro. Todos os direitos reservados.</p>
+    </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

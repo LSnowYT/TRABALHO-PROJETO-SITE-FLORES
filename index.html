@@ -1,267 +1,120 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cobranças Pro - Sistema de Gestão de Cobranças</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NeuroCharge AI</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <!-- Login Section -->
-    <section id="loginSection" class="login-section">
-        <div class="login-container">
-            <div class="login-box">
-                <h1 class="login-logo">Cobranças Pro</h1>
-                <p class="login-subtitle">Sistema de Gestão de Cobranças</p>
 
-                <form class="login-form" id="loginForm">
-                    <div class="form-group">
-                        <label for="username">Usuário</label>
-                        <input type="text" id="username" name="username" required placeholder="Digite seu usuário">
-                    </div>
+<!-- HEADER -->
+<header class="header">
+    <div class="container-header">
+        <h1 class="logo">NeuroCharge AI</h1>
 
-                    <div class="form-group">
-                        <label for="password">Senha</label>
-                        <input type="password" id="password" name="password" required placeholder="Digite sua senha">
-                    </div>
+        <nav class="menu" aria-label="Menu principal">
+            <a href="#">Início</a>
+            <a href="#">Soluções</a>
+            <a href="#">Tecnologia</a>
+            <a href="#">Contato</a>
+        </nav>
+    </div>
+</header>
 
-                    <div class="form-group">
-                        <label for="userType">Tipo de Usuário</label>
-                        <select id="userType" name="userType" required>
-                            <option value="">Selecione...</option>
-                            <option value="admin">Administrador</option>
-                            <option value="funcionario">Funcionário</option>
-                        </select>
-                    </div>
+<main>
 
-                    <button type="submit" class="btn-login">Entrar</button>
+<!-- SERVIÇOS -->
+<section class="servicos">
 
-                    <div id="loginError" class="login-error" style="display: none;"></div>
-                </form>
-
-                <div class="login-footer">
-                    <p><strong>Credenciais de teste:</strong></p>
-                    <p>Admin: admin / admin</p>
-                    <p>Funcionário: func / func</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dashboard Section -->
-    <div id="dashboardSection" class="dashboard-section" style="display: none;">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <h1 class="logo">Cobranças Pro</h1>
-                <nav class="nav">
-                    <ul>
-                        <li><a href="#" class="nav-link active">Dashboard</a></li>
-                        <li><a href="#" class="nav-link">Clientes</a></li>
-                        <li><a href="#" class="nav-link">Cobranças</a></li>
-                        <li><a href="#" class="nav-link">Relatórios</a></li>
-                        <li><a href="#" class="nav-link">Configurações</a></li>
-                        <li><a href="#" class="nav-link logout-link" id="logoutBtn">Sair</a></li>
-                    </ul>
-                </nav>
-                <div class="user-info" id="userInfo"></div>
-            </div>
-        </header>
-
-    <!-- Main Content -->
-    <main class="container">
-        <!-- Dashboard Cards -->
-        <section class="dashboard-cards">
-            <div class="card">
-                <h3>Total em Cobranças</h3>
-                <p class="card-value">R$ 45.230,00</p>
-                <p class="card-subtitle">28 pendentes</p>
-            </div>
-            <div class="card">
-                <h3>Cobrado este mês</h3>
-                <p class="card-value">R$ 18.900,00</p>
-                <p class="card-subtitle">15 processadas</p>
-            </div>
-            <div class="card">
-                <h3>Taxa de Sucesso</h3>
-                <p class="card-value">94.5%</p>
-                <p class="card-subtitle">Últimos 30 dias</p>
-            </div>
-            <div class="card">
-                <h3>Clientes Ativos</h3>
-                <p class="card-value">127</p>
-                <p class="card-subtitle">+8 este mês</p>
-            </div>
-        </section>
-
-        <!-- Cobranças Pendentes -->
-        <section class="section">
-            <h2>Cobranças Pendentes</h2>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>ID Cobrança</th>
-                        <th>Cliente</th>
-                        <th>Valor</th>
-                        <th>Vencimento</th>
-                        <th>Status</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>#COB-001</td>
-                        <td>Empresa ABC Ltda</td>
-                        <td>R$ 5.200,00</td>
-                        <td>15/04/2026</td>
-                        <td><span class="badge badge-warning">Vencendo</span></td>
-                        <td><button class="btn-action">Enviar</button></td>
-                    </tr>
-                    <tr>
-                        <td>#COB-002</td>
-                        <td>Comércio XYZ</td>
-                        <td>R$ 8.750,00</td>
-                        <td>22/04/2026</td>
-                        <td><span class="badge badge-info">Pendente</span></td>
-                        <td><button class="btn-action">Enviar</button></td>
-                    </tr>
-                    <tr>
-                        <td>#COB-003</td>
-                        <td>Serviços Tech Ind.</td>
-                        <td>R$ 3.450,00</td>
-                        <td>10/04/2026</td>
-                        <td><span class="badge badge-danger">Atrasada</span></td>
-                        <td><button class="btn-action">Cobrar</button></td>
-                    </tr>
-                    <tr>
-                        <td>#COB-004</td>
-                        <td>Consultoria Pro</td>
-                        <td>R$ 12.500,00</td>
-                        <td>28/04/2026</td>
-                        <td><span class="badge badge-info">Pendente</span></td>
-                        <td><button class="btn-action">Enviar</button></td>
-                    </tr>
-                    <tr>
-                        <td>#COB-005</td>
-                        <td>Distribuidora Nacional</td>
-                        <td>R$ 15.330,00</td>
-                        <td>05/05/2026</td>
-                        <td><span class="badge badge-info">Pendente</span></td>
-                        <td><button class="btn-action">Enviar</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- Clientes -->
-        <section class="section">
-            <h2>Clientes Principais</h2>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Contato</th>
-                        <th>Total Devido</th>
-                        <th>Atrasos</th>
-                        <th>Situação</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Empresa ABC Ltda</td>
-                        <td>gerente@abcltda.com.br</td>
-                        <td>R$ 12.400,00</td>
-                        <td>1</td>
-                        <td><span class="badge badge-danger">Em Risco</span></td>
-                        <td><button class="btn-action">Detalhe</button></td>
-                    </tr>
-                    <tr>
-                        <td>Comércio XYZ</td>
-                        <td>financeiro@xyz.com.br</td>
-                        <td>R$ 8.750,00</td>
-                        <td>0</td>
-                        <td><span class="badge badge-success">Bom</span></td>
-                        <td><button class="btn-action">Detalhe</button></td>
-                    </tr>
-                    <tr>
-                        <td>Serviços Tech Ind.</td>
-                        <td>contato@techind.com.br</td>
-                        <td>R$ 3.450,00</td>
-                        <td>2</td>
-                        <td><span class="badge badge-danger">Crítico</span></td>
-                        <td><button class="btn-action">Detalhe</button></td>
-                    </tr>
-                    <tr>
-                        <td>Consultoria Pro</td>
-                        <td>vendas@consultoriapro.br</td>
-                        <td>R$ 12.500,00</td>
-                        <td>0</td>
-                        <td><span class="badge badge-success">Bom</span></td>
-                        <td><button class="btn-action">Detalhe</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- Configurações -->
-        <section class="section">
-            <h2>Configurações</h2>
-            <div class="config-section">
-                <h3>Temas da Página</h3>
-                <p>Escolha o tema visual que preferir:</p>
-
-                <div class="theme-selector">
-                    <div class="theme-option" data-theme="default">
-                        <div class="theme-preview">
-                            <div class="theme-header" style="background: linear-gradient(135deg, #0066cc 0%, #004fa3 100%);"></div>
-                            <div class="theme-content">
-                                <div class="theme-card" style="border-left: 5px solid #0066cc;"></div>
-                                <div class="theme-button" style="background: #0066cc;"></div>
-                            </div>
-                        </div>
-                        <h4>Padrão</h4>
-                        <p>Tema profissional azul</p>
-                    </div>
-
-                    <div class="theme-option" data-theme="galaxy">
-                        <div class="theme-preview">
-                            <div class="theme-header" style="background: linear-gradient(135deg, #4c1d95 0%, #1e1b4b 100%);"></div>
-                            <div class="theme-content">
-                                <div class="theme-card" style="border-left: 5px solid #8b5cf6;"></div>
-                                <div class="theme-button" style="background: linear-gradient(135deg, #8b5cf6 0%, #4c1d95 100%);"></div>
-                            </div>
-                        </div>
-                        <h4>Galáxia</h4>
-                        <p>Tema roxo cósmico</p>
-                    </div>
-
-                    <div class="theme-option" data-theme="dark">
-                        <div class="theme-preview">
-                            <div class="theme-header" style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%);"></div>
-                            <div class="theme-content">
-                                <div class="theme-card" style="border-left: 5px solid #3b82f6;"></div>
-                                <div class="theme-button" style="background: #3b82f6;"></div>
-                            </div>
-                        </div>
-                        <h4>Escuro</h4>
-                        <p>Tema dark mode</p>
-                    </div>
-                </div>
-
-                <div class="theme-status" id="themeStatus" style="display: none;">
-                    <p>Tema aplicado com sucesso! 🎨</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2026 Cobranças Pro. Todos os direitos reservados.</p>
-    </footer>
+    <div class="topo">
+        <h2>Plataformas inteligentes de cobrança</h2>
+        <p>Automação, dados e IA para recuperação de clientes</p>
     </div>
 
-    <script src="script.js"></script>
+    <div class="slider-servicos">
+
+        <button class="seta" aria-label="Voltar" onclick="mover(-1)">❮</button>
+
+        <div class="cards-container" id="cardsContainer">
+
+            <article class="card">
+                <h3>Neuro Journey</h3>
+                <p>Jornadas automatizadas com IA.</p>
+                <button>Clique aqui</button>
+            </article>
+
+            <article class="card">
+                <h3>Neuro Contact</h3>
+                <p>Contato inteligente com clientes.</p>
+                <button>Clique aqui</button>
+            </article>
+
+            <article class="card">
+                <h3>Neuro Insights</h3>
+                <p>Decisões baseadas em dados.</p>
+                <button>Clique aqui</button>
+            </article>
+
+            <article class="card">
+                <h3>Neuro Channels</h3>
+                <p>Escolha automática do canal.</p>
+                <button>Clique aqui</button>
+            </article>
+
+            <article class="card">
+                <h3>Neuro Docs</h3>
+                <p>Gestão de documentos digitais.</p>
+                <button>Clique aqui</button>
+            </article>
+
+        </div>
+
+        <button class="seta" aria-label="Avançar" onclick="mover(1)">❯</button>
+
+    </div>
+
+    <!-- BOLINHAS -->
+    <div class="dots">
+        <span class="dot active" onclick="irPara(0)"></span>
+        <span class="dot" onclick="irPara(1)"></span>
+    </div>
+
+</section>
+
+<!-- CLIENTES -->
+<section class="clientes">
+
+    <h2>Nossos clientes</h2>
+
+    <div class="clientes-container">
+        <img src="img/cliente1.png" alt="Cliente 1">
+        <img src="img/cliente2.png" alt="Cliente 2">
+        <img src="img/cliente3.png" alt="Cliente 3">
+        <img src="img/cliente4.png" alt="Cliente 4">
+        <img src="img/cliente5.png" alt="Cliente 5">
+    </div>
+
+</section>
+<section class="contato" id="contato">
+    <h2>Entre em contato</h2>
+
+    <form id="formContato">
+        <input type="text" placeholder="Seu nome" required>
+        <input type="email" placeholder="Seu email" required>
+        <textarea placeholder="Sua mensagem" required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <p id="mensagemSucesso">Mensagem enviada com sucesso!</p>
+</section>
+</main>
+
+<footer class="footer">
+    <p>© 2026 NeuroCharge AI</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

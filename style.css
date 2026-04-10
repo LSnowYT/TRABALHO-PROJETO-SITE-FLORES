@@ -52,12 +52,18 @@ body {
     display: flex;
     align-items: center;
     margin-top: 40px;
+    overflow: hidden;
+}
+
+.cards-wrapper{
+    flex: 1;
+    overflow: hidden;
+    min-width: 0;
 }
 
 .cards-container {
     display: flex;
     gap: 20px;
-    overflow: hidden;
     transition: transform 0.5s ease;
 }
 
